@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_08_08_133943) do
     t.string "category"
     t.string "color"
     t.integer "stock"
-    t.integer "price"
+    t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {postSignup} from '../redux/actions';
+import {postSignup} from '../actions';
 
 class Signup extends Component {
   state = {
@@ -17,7 +17,7 @@ class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.props.userPostFetch(this.state)
+    this.props.postSignup(this.state)
   }
 
   render() {
@@ -41,7 +41,7 @@ class Signup extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  postSignup: userObj => dispatch(postSignup(Obj))
+  postSignup: userObj => dispatch(postSignup(userObj))
 })
 
 export default connect(null, mapDispatchToProps)(Signup);
