@@ -1,14 +1,16 @@
 import { Component } from "react";
 import { connect } from "react-redux";
+import Login from "./Login";
 
 class Home extends Component{
 
     render(){
         let user = this.props.currentUser
         return (
-            <>
-                {user.name ? <p>{`Welcome ${user.name}`}</p> : <p>Not Logged in</p>}
-            </>
+            <div>
+                {/*user.name ? <p>{`Welcome ${user.name}`}</p> : <Login/>*/}
+                <p>Welcome</p>
+            </div>
         )
     }
 
