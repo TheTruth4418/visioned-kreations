@@ -1,0 +1,19 @@
+.cart {
+    width: 3%;
+    float:right;
+    margin-left: 300px;
+}
+
+.nav{
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 20;
+        overflow: hidden;
+        background: gray;
+        li{
+            float: left;
+            padding: 1%;
+        }
+    }
+}

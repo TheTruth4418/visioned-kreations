@@ -1,17 +1,24 @@
 import { Component } from "react";
 import React from "react";
 import cart from "../images/cart.png"
+import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import {connect} from 'react-redux'
 
 
 class NavBar extends Component{
     render(){
+        console.log(this.props)
         return (
             <div className="nav">
                 <ul>
-                    <li>Home</li>
-                    <li>Login</li>
-                    <li>Signup</li>
-                    <li><img src={cart} className="cart"/></li>
+                    <li><NavLink to="/">Home</NavLink></li>
+                    {this.props.loggedIn ? 
+                    <>
+                        <li><NavLink to="/login">Login</NavLink></li>
+                        <li><NavLink to="/signup">Signup</NavLink></li>
+                    </> : 
+                    <p>LogOut will go here</p>}
+                    <li><img src={cart} alt="" className="cart"/></li>
                 </ul>
                 
             </div>
@@ -19,4 +26,10 @@ class NavBar extends Component{
     }
 }
 
-export default (NavBar);
+const MSTP = state => {
+    return {
+        loggedIn: state.currentUser === undefined
+    }
+}
+
+export default connect(MSTP)(NavBar);

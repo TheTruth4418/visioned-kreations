@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {postSignup} from '../actions';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class Signup extends Component {
   state = {
     email:"",
     name: "",
     password: ""
+  }
+
+  componentDidMount(){
+    if(this.props.loggedIn){
+    <Redirect to="/" />
+    alert("You are already logged in")
+    }
   }
 
   handleChange = event => {
@@ -40,8 +48,14 @@ class Signup extends Component {
   }
 }
 
+const MSTP = state => {
+  return {
+      loggedIn: state.currentUser != undefined
+  }
+}
+
 const mapDispatchToProps = dispatch => ({
   postSignup: userObj => dispatch(postSignup(userObj))
 })
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(MSTP, mapDispatchToProps)(Signup);

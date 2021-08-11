@@ -6,7 +6,7 @@ import NavBar from './container/NavBar';
 import { Component } from 'react';
 import { fetchUser } from './actions';
 import { connect } from 'react-redux';
-import './index.css'
+import './styleSheets/index.css'
 
 class App extends Component{
 
@@ -18,7 +18,7 @@ class App extends Component{
   render(){
   return (
     <Router>
-      <NavBar/>
+      {<NavBar/>}
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/signup" component={Signup}/>

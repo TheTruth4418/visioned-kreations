@@ -1,11 +1,20 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchLogin} from '../actions';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { fetchUser } from '../actions';
 
 class Login extends Component {
   state = {
     email: "",
     password: ""
+  }
+
+  componentDidMount(){
+    if(this.props.loggedIn){
+    <Redirect to="/" />
+    alert("You are already logged in")
+    }
   }
 
   handleChange = event => {
@@ -36,8 +45,15 @@ class Login extends Component {
   }
 }
 
+const MSTP = state => {
+  return {
+      loggedIn: state.currentUser != undefined
+  }
+}
+
 const mapDispatchToProps = dispatch => ({
-  fetchLogin: userObj => dispatch(fetchLogin(userObj))
+  fetchLogin: userObj => dispatch(fetchLogin(userObj)),
+  fetchUser: () => dispatch(fetchUser())
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(MSTP, mapDispatchToProps)(Login);
