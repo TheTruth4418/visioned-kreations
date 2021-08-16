@@ -3,24 +3,32 @@ import React from "react";
 import cart from "../images/cart.png"
 import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import {connect} from 'react-redux'
+import { logoutUser } from "../actions";
 
 
 class NavBar extends Component{
+
+    loginActions(){
+        return(
+            <>
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/signup">Signup</NavLink>
+            </>
+        )
+    }
+
+    logout= e => {
+        e.preventDefault();
+        localStorage.removeItem("token")
+        this.props.logoutUser()
+    }
+
     render(){
-        console.log(this.props)
         return (
             <div className="nav">
-                <ul>
-                    <li><NavLink to="/">Home</NavLink></li>
-                    {this.props.loggedIn ? 
-                    <>
-                        <li><NavLink to="/login">Login</NavLink></li>
-                        <li><NavLink to="/signup">Signup</NavLink></li>
-                    </> : 
-                    <p>LogOut will go here</p>}
-                    <li><img src={cart} alt="" className="cart"/></li>
-                </ul>
-                
+                <NavLink to="/">Home</NavLink>
+                {this.props.loggedIn ? this.loginActions() : <a href="/" onClick={this.logout} >Log Out</a>}
+                <NavLink to="/cart" className="cartDiv"><img src={cart} alt="" className="cartImg"/></NavLink>
             </div>
         )
     }
@@ -32,4 +40,10 @@ const MSTP = state => {
     }
 }
 
-export default connect(MSTP)(NavBar);
+const MDTP = dispatch => {
+    return {
+        logoutUser: () => dispatch(logoutUser())
+    }
+} 
+
+export default connect(MSTP, MDTP)(NavBar);

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchLogin} from '../actions';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
-import { fetchUser } from '../actions';
 
 class Login extends Component {
   state = {
@@ -12,8 +10,8 @@ class Login extends Component {
 
   componentDidMount(){
     if(this.props.loggedIn){
-    <Redirect to="/" />
-    alert("You are already logged in")
+      this.props.history.push('/')
+      alert("You are already logged in")
     }
   }
 
@@ -24,8 +22,12 @@ class Login extends Component {
   }
 
   handleSubmit = event => {
+    let obj = {
+      state: this.state,
+      history: this.props.history
+    }
     event.preventDefault()
-    this.props.fetchLogin(this.state)
+    this.props.fetchLogin(obj)
   }
 
   render() {
@@ -47,13 +49,12 @@ class Login extends Component {
 
 const MSTP = state => {
   return {
-      loggedIn: state.currentUser != undefined
+      loggedIn: state.currentUser !== undefined
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchLogin: userObj => dispatch(fetchLogin(userObj)),
-  fetchUser: () => dispatch(fetchUser())
+  fetchLogin: userObj => dispatch(fetchLogin(userObj))
 })
 
 export default connect(MSTP, mapDispatchToProps)(Login);

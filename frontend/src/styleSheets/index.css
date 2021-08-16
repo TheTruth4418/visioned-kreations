@@ -1,19 +1,27 @@
-.cart {
-  width: 3%;
-  float: right;
-  margin-left: 300px;
+.cartImg {
+  width: 15px;
 }
 
-.nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 20;
+.nav {
   overflow: hidden;
-  background: gray;
+  background-color: #333;
 }
 
-.nav ul li {
+.nav a {
+  color: white;
   float: left;
-  padding: 1%;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav a:hover {
+  background-color: gold;
+}
+
+.nav .cartDiv {
+  width: 48px;
 }
 /*# sourceMappingURL=index.css.map */

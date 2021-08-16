@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import Login from "./Login";
+import Catalog from "../container/Catalog";
 
 class Home extends Component{
 
@@ -8,8 +8,8 @@ class Home extends Component{
         let user = this.props.currentUser
         return (
             <div>
-                {/*user.name ? <p>{`Welcome ${user.name}`}</p> : <Login/>*/}
-                <p>Welcome</p>
+                {user ? <p>{`Welcome ${user.name}`}</p> : <p>Welcome Guest!</p>}
+                <Catalog/>
             </div>
         )
     }

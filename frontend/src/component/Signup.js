@@ -50,7 +50,7 @@ class Signup extends Component {
 
 const MSTP = state => {
   return {
-      loggedIn: state.currentUser != undefined
+      loggedIn: state.currentUser !== undefined
   }
 }
 

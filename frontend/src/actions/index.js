@@ -21,7 +21,9 @@ export const postSignup = userObj => {
     }
   }
   
-  export const fetchLogin = userObj => {
+  export const fetchLogin = (userObj) => {
+    let state = userObj.state
+    console.log(state)
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
@@ -29,7 +31,7 @@ export const postSignup = userObj => {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify({userObj})
+        body: JSON.stringify({state})
       })
         .then(resp => resp.json())
         .then(data => {
@@ -39,14 +41,16 @@ export const postSignup = userObj => {
             console.log(data)
             localStorage.setItem("token", data.jwt)
             dispatch(loginUser(data.user))
+            userObj.history.push('/')
           }
         })
     }
   }
-  const loginUser = userObj => ({
+  const loginUser = (userObj) => ({
     type: 'LOGIN_USER',
     payload: userObj
 })
+
 
 export const fetchUser = () => {
   return dispatch => {
@@ -69,5 +73,32 @@ export const fetchUser = () => {
           }
         })
     }
+  }
+}
+
+export const logoutUser = () => ({
+  type: 'LOGOUT_USER'
+})
+
+export const getItems = () => {
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/items", {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data.message) {
+          alert(data.message)
+        } else {
+          return dispatch({
+            type: 'GET_ITEMS',
+            payload: data
+          })
+        }
+      })
   }
 }
