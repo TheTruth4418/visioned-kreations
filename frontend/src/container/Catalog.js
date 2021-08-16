@@ -3,17 +3,22 @@ import { connect } from "react-redux"
 import { getItems } from "../actions"
 class Catalog extends Component{
 
-componentDidMount(){
-    this.props.getItems()
-}
+    componentDidMount(){
+        this.props.getItems()
+    }
 
 render(){
     let notesArr = []
-    for(const [key,value] of Object.entries(this.props.items).sort()){
-        notesArr.push(<li>{value.name}-{value.category}</li>)
+    if(this.props.items){
+     for(const [key,value] of Object.entries(this.props.items).sort()){
+        notesArr.push(<div key={value.id} className="catalog">
+                        <img src={require(`../images/${value.category}/${value.name}.png`).default} alt="" className={value.category} /><br/>
+                        {value.name}<br/>{`Price $${value.price}`}
+                      </div>)
+        } 
     }
     return (
-        <div className="catalog">
+        <div className="catalog-container">
             <p>Catalog</p>
             {notesArr}
         </div>

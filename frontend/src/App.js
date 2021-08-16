@@ -4,7 +4,7 @@ import Login from './component/Login';
 import Home from './component/Home';
 import NavBar from './container/NavBar';
 import { Component } from 'react';
-import { fetchUser } from './actions';
+import { fetchUser, getItems } from './actions';
 import { connect } from 'react-redux';
 import './styleSheets/index.css'
 
@@ -30,7 +30,8 @@ class App extends Component{
 }
 
 const mapDispatchToProps = dispatch => ({
-  fetchUser: () => dispatch(fetchUser())
+  fetchUser: () => dispatch(fetchUser()),
+  getItems: () => dispatch(getItems())
 })
 
 export default connect(null, mapDispatchToProps)(App);

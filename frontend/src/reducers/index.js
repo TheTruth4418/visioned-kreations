@@ -1,5 +1,5 @@
 const initialState = {
-
+  loading: false
 }
 
 const rootReducer = (state=initialState,action) => {
@@ -9,7 +9,9 @@ const rootReducer = (state=initialState,action) => {
       case 'LOGOUT_USER':
         return { ...state, currentUser: undefined }
       case 'GET_ITEMS':
-        return { ...state, items: action.payload }
+        return { ...state, items: action.payload, loading: false}
+      case 'LOADING':
+        return { ...state, loading: true}
       default:
         return state;
     }
