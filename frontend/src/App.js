@@ -3,6 +3,7 @@ import Signup from './component/Signup';
 import Login from './component/Login';
 import Home from './component/Home';
 import NavBar from './container/NavBar';
+import ItemPage from './container/ItemPage';
 import { Component } from 'react';
 import { fetchUser, getItems } from './actions';
 import { connect } from 'react-redux';
@@ -23,6 +24,7 @@ class App extends Component{
         <Route exact path="/" component={Home}/>
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/login" component={Login}/>
+        <Route path="/items" component={ItemPage}/>
       </Switch>
     </Router>
   );

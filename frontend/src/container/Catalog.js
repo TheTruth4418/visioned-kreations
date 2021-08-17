@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { connect } from "react-redux"
 import { getItems } from "../actions"
+import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 class Catalog extends Component{
 
     componentDidMount(){
@@ -11,10 +12,10 @@ render(){
     let notesArr = []
     if(this.props.items){
      for(const [key,value] of Object.entries(this.props.items).sort()){
-        notesArr.push(<div key={value.id} className="catalog">
+        notesArr.push(<NavLink to={`/items/${value.name}`} ><div key={value.id} className="catalog">
                         <img src={require(`../images/${value.category}/${value.name}.png`).default} alt="" className={value.category} /><br/>
                         {value.name}<br/>{`Price $${value.price}`}
-                      </div>)
+                      </div></NavLink>)
         } 
     }
     return (
