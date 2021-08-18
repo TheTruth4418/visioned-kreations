@@ -1,32 +1,47 @@
 import { Component } from "react"
 import { connect } from "react-redux"
-import { getItems } from "../actions"
-import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { fetchItem } from "../actions"
+import ShirtInfo from "./ShirtInfo"
+import CupInfo from "./CupInfo"
+//import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 class ItemPage extends Component{
 
+    state={
+        item: this.props.location.pathname.split("/")[2] 
+    }
+
     componentDidMount(){
-        
+        this.props.fetchItem(this.state)
     }
 
-render(){
-    return (
-        <div className="item-container">
-            <h1>Item page</h1>
-        </div>
-    )
+    infoCard(){
+        switch(this.props.item.category){
+            case "Shirt":
+                return <ShirtInfo />
+            case "Cup":
+                return <CupInfo />
+        }
     }
-}
 
-const MSTP = state => {
-    return {
-        items: state.items 
+    render(){
+        return (
+            <div className="item-container">
+                {this.props.item ? this.infoCard() : <h2>Loading</h2> }
+            </div>
+        )
+        }
     }
-}
 
-const MDTP = dispatch => {
-    return {
-        getItems: () => dispatch(getItems())
+    const MSTP = state => {
+        return {
+            item: state.viewing 
+        }
     }
-}
 
-export default connect(MSTP,MDTP)(ItemPage)
+    const MDTP = dispatch => {
+        return {
+            fetchItem: obj => dispatch(fetchItem(obj))
+        }
+    }
+
+    export default connect(MSTP,MDTP)(ItemPage)

@@ -102,3 +102,26 @@ export const getItems = () => {
       })
   }
 }
+
+export const fetchItem = obj => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/items/${obj.item}`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      }
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data.message) {
+          alert(data.message)
+        } else {
+          return dispatch({
+            type: 'VIEW_ITEM',
+            payload: data
+          })
+        }
+      })
+  }
+}

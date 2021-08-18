@@ -9,9 +9,9 @@ const rootReducer = (state=initialState,action) => {
       case 'LOGOUT_USER':
         return { ...state, currentUser: undefined }
       case 'GET_ITEMS':
-        return { ...state, items: action.payload, loading: false}
-      case 'LOADING':
-        return { ...state, loading: true}
+        return { ...state, items: action.payload, viewing: undefined}
+      case 'VIEW_ITEM':
+        return {...state, viewing: action.payload }
       default:
         return state;
     }

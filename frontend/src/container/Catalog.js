@@ -14,7 +14,7 @@ render(){
      for(const [key,value] of Object.entries(this.props.items).sort()){
         notesArr.push(<NavLink to={`/items/${value.name}`} ><div key={value.id} className="catalog">
                         <img src={require(`../images/${value.category}/${value.name}.png`).default} alt="" className={value.category} /><br/>
-                        {value.name}<br/>{`Price $${value.price}`}
+                        {value.name}<br/>{`Starting at $${value.price}`}
                       </div></NavLink>)
         } 
     }
