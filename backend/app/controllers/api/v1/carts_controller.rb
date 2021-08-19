@@ -1,12 +1,8 @@
 class Api::V1::CartsController < ApplicationController
-    def add_shirt
+    def add_product
         product = Product.find_by_id(params[:obj][:id])
         cart = current_user.cart
-        cart.products << product
-        render json: cart
-    end
-
-    def add_cup
-        render json: params
+        CartProduct.create(cart_id: cart.id, product_id: product.id)
+        render json: {status: "success"}
     end
 end

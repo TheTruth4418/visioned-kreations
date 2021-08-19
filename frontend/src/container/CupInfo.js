@@ -1,7 +1,12 @@
 import { Component } from "react"
 import { connect } from "react-redux"
+import { addCupToCart } from "../actions"
 //import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 class ShirtInfo extends Component{
+
+    addToCart = e => {
+        this.props.addCupToCart(this.props.item)
+    }
 
     componentDidMount(){
         
@@ -16,7 +21,7 @@ render(){
             <p>Price ${item.price}</p>
             {item.products[0].stock > 0 ? 
             <>
-                <button>Add to Cart</button>
+                <button onClick={this.addToCart}>Add to Cart</button>
                 <p>In Stock!</p>
             </> : 
             <p>Out of Stock</p>}
@@ -33,7 +38,7 @@ const MSTP = state => {
 
 const MDTP = dispatch => {
     return {
-       
+        addCupToCart: obj => dispatch(addCupToCart(obj))
     }
 }
 
