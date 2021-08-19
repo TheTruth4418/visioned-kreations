@@ -5,11 +5,10 @@ import { addCupToCart } from "../actions"
 class ShirtInfo extends Component{
 
     addToCart = e => {
-        this.props.addCupToCart(this.props.item)
+        this.props.addCupToCart(this.props.item.products[0])
     }
 
     componentDidMount(){
-        
     }
 
 render(){

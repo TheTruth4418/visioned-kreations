@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         get '/user' => 'users#user'
         get '/items' => 'items#index'
         get '/items/:item_name' => 'items#show'
+        get '/users/cart' => 'carts#show'
         post '/users/cart/add_shirt' => 'carts#add_product'
         post '/users/cart/add_cup' => 'carts#add_product'
       end

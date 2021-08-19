@@ -4,6 +4,7 @@ import Login from './component/Login';
 import Home from './component/Home';
 import NavBar from './container/NavBar';
 import ItemPage from './container/ItemPage';
+import Cart from './container/Cart';
 import { Component } from 'react';
 import { fetchUser, getItems } from './actions';
 import { connect } from 'react-redux';
@@ -25,6 +26,7 @@ class App extends Component{
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/login" component={Login}/>
         <Route path="/items" component={ItemPage}/>
+        <Route exact path="/cart" component={Cart}/>
       </Switch>
     </Router>
   );

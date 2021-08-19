@@ -147,6 +147,8 @@ export const addCupToCart = obj => {
             console.log(data)
           }
         })
+    } else {
+      alert("You must make an account before using the cart!")
     }
   }
 }
@@ -172,6 +174,37 @@ export const addShirtToCart = obj => {
             console.log(data)
           }
         })
+    } else {
+      alert("You must sign in before using the cart!")
+    }
+  }
+}
+
+export const viewCart = obj => {
+  return dispatch => {
+    const token = localStorage.token;
+    if (token) {
+      return fetch("http://localhost:3000/api/v1/users/cart", {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          if (data.message) {
+            console.log(data.message)
+          } else {
+            dispatch({
+              type: "VIEW_CART",
+              payload: data
+            })
+          }
+        })
+    } else {
+      alert("You must sign in before using the cart!")
     }
   }
 }
