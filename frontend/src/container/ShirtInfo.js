@@ -1,5 +1,6 @@
 import { Component } from "react"
 import { connect } from "react-redux"
+import { addShirtToCart } from "../actions"
 //import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 class ShirtInfo extends Component{
 
@@ -12,22 +13,23 @@ class ShirtInfo extends Component{
             size: e.target.value
         })
     }
+
+    submitCart = (e) => {
+        this.props.addShirtToCart(this.inventoryReader(this.state.size))
+    }
     
     inventoryReader(arg){
         switch(arg){
             case "S":
-                return <p>{this.props.item.products[0].stock}</p>
+                return this.props.item.products[0]
             case "M":
-                return <p>{this.props.item.products[1].stock}</p>
+                return this.props.item.products[1]
             case "L":
-                return <p>{this.props.item.products[2].stock}</p>
+                return this.props.item.products[2]
             default:
                 return <p>Select a size</p>
 
         }
-    }
-
-    componentDidMount(){
     }
 
 render(){
@@ -41,7 +43,7 @@ render(){
                 <button name="medium" value="M" onClick={this.onChange}>M</button>
                 <button name="large" value="L" onClick={this.onChange}>L</button>
             </div>
-            {this.state.size ? (this.inventoryReader(this.state.size) !== 0 ? <> <p>In Stock</p> <button>Add to Cart</button> </> : <p>Out of Stock</p>) : <p>Select a size</p>}
+            {this.state.size ? (this.inventoryReader(this.state.size).stock !== 0 ? <> <p>In Stock</p> <button onClick={this.submitCart}>Add to Cart</button> </> : <p>Out of Stock</p>) : <p>Select a size</p>}
             
         </div>
         )
@@ -56,7 +58,7 @@ const MSTP = state => {
 
 const MDTP = dispatch => {
     return {
-        
+        addShirtToCart: obj => dispatch(addShirtToCart(obj))
     }
 }
 

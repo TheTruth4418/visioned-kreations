@@ -11,6 +11,7 @@ class Api::V1::UsersController < ApplicationController
       if @user.valid?
         @user.save!
         @token = encode_token({ user_id: @user.id })
+        Cart.create(user_id: @user.id)
         render json: { user: {name: @user.name, email:@user.email}, jwt: @token }, status: :created
       else
         render json: { message: 'failed to create user' }, status: :not_acceptable
