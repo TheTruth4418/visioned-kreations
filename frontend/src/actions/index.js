@@ -208,3 +208,26 @@ export const viewCart = obj => {
     }
   }
 }
+
+export const removeItem = obj => {
+  const token = localStorage.token;
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/users/cart/remove_item", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({obj})
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        dispatch({
+          type: 'VIEW_CART',
+          payload: data
+        })
+      })
+  }
+  
+}

@@ -20,6 +20,8 @@ class ItemPage extends Component{
                 return <ShirtInfo />
             case "Cup":
                 return <CupInfo />
+            default:
+                return null;
         }
     }
 

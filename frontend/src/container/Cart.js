@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { connect } from "react-redux"
-import { viewCart } from "../actions"
+import { viewCart,removeItem } from "../actions"
 //import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 class Cart extends Component{
 
@@ -8,20 +8,32 @@ class Cart extends Component{
         this.props.viewCart()
     }
 
+    removeItem = e => {
+        let obj = {
+            id: e.target.id
+        }
+        this.props.removeItem(obj)
+    }
+
 render(){
     let cartArr = []
+    let total = 0
     if(this.props.cart){
-    for(const [key,value] of Object.entries(this.props.cart)){
-        cartArr.push(<div className="cart-item-container">
-            <p>{key}</p>
-            <p>{`Price ${value.price*value.quantity}`}</p>
-            <p>{`Quantity: ${value.quantity}`}</p>
-        </div>)
+        for(const [key,value] of Object.entries(this.props.cart).sort()){
+            cartArr.push(<div className="cart-item-container" key={value.id}>
+                <p>{key}</p>
+                <p>{`Quantity: ${value.quantity}`}</p>
+                <p>{`Price ${value.price*value.quantity}`}</p>
+                <button id={value.id} onClick={this.removeItem}>Remove</button>
+            </div>
+            )
+        total += value.price*value.quantity
+        }
     }
-}
     return (
         <div className="item-container">
             {cartArr}
+            <h3>{`Subtotal $${total.toFixed(2)}`}</h3>
         </div>
     )
     }
@@ -35,7 +47,8 @@ const MSTP = state => {
 
 const MDTP = dispatch => {
     return {
-        viewCart: obj => dispatch(viewCart(obj))
+        viewCart: obj => dispatch(viewCart(obj)),
+        removeItem: id => dispatch(removeItem(id))
     }
 }
 

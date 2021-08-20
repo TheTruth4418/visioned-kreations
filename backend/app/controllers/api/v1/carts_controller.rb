@@ -16,11 +16,24 @@ class Api::V1::CartsController < ApplicationController
             else
                 cartObj[item.name] = {
                     "quantity" => 1,
-                    "price" => item.price
+                    "price" => item.price,
+                    "id" => item.id
                 }
             end
         end
         render json: cartObj
+    end
+
+    def clear 
+
+    end
+
+    def remove_item
+        item = Product.find_by_id(params[:obj][:id])
+        cart = current_user.cart
+        product = CartProduct.find_by(product_id: item.id,cart_id: cart.id)
+        product.destroy
+        self.show
     end
 end
 
