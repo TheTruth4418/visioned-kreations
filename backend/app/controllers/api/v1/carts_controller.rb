@@ -25,7 +25,9 @@ class Api::V1::CartsController < ApplicationController
     end
 
     def clear 
-
+        cart = current_user.cart.cart_products
+        cart.destroy_all
+        render json: {status: "Success"}
     end
 
     def remove_item

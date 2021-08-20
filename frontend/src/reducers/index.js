@@ -14,6 +14,8 @@ const rootReducer = (state=initialState,action) => {
         return {...state, viewing: action.payload, cart: undefined }
       case 'VIEW_CART':
         return {...state, cart: action.payload}
+      case 'CLEAR_CART':
+        return{...state, cart: {}}
       default:
         return state;
     }

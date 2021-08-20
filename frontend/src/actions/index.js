@@ -229,5 +229,25 @@ export const removeItem = obj => {
         })
       })
   }
-  
+}
+
+export const clearCart = () => {
+  const token = localStorage.token;
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/users/cart/clear", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        dispatch({
+          type: 'CLEAR_CART',
+          payload: data
+        })
+      })
+  }
 }

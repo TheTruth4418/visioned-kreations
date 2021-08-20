@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { connect } from "react-redux"
-import { viewCart,removeItem } from "../actions"
+import { viewCart,removeItem,clearCart } from "../actions"
 //import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 class Cart extends Component{
 
@@ -13,6 +13,12 @@ class Cart extends Component{
             id: e.target.id
         }
         this.props.removeItem(obj)
+    }
+
+    clearCart = () => {
+        if (window.confirm("Are you sure you want to clear your cart?") === true){
+            this.props.clearCart()
+        }
     }
 
 render(){
@@ -32,8 +38,12 @@ render(){
     }
     return (
         <div className="item-container">
-            {cartArr}
-            <h3>{`Subtotal $${total.toFixed(2)}`}</h3>
+            {cartArr.length === 0 ? <p>Your Cart is empty</p> :
+            <>
+                {cartArr}
+                <h3>{`Subtotal $${total.toFixed(2)}`}</h3>
+                <button onClick={this.clearCart}>Clear Cart</button>
+            </> }
         </div>
     )
     }
@@ -48,7 +58,8 @@ const MSTP = state => {
 const MDTP = dispatch => {
     return {
         viewCart: obj => dispatch(viewCart(obj)),
-        removeItem: id => dispatch(removeItem(id))
+        removeItem: id => dispatch(removeItem(id)),
+        clearCart: () => dispatch(clearCart())
     }
 }
 
