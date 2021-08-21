@@ -4,16 +4,31 @@ import { connect } from "react-redux";
 
 class Confirmation extends Component{
     render(){
+        let orderArr = []
+        if(this.props.order){
+            delete this.props.order["id"]
+            for(const [key,value] of Object.entries(this.props.order).sort()){
+                orderArr.push(<div className="order-item-container" key={value.id}>
+                    <p>{key}</p>
+                    <p>{`Quantity: ${value.quantity}`}</p>
+                    <p>{`Price ${value.price*value.quantity}`}</p>
+                </div>
+                )
+            }
+        }
         return (
-            <h2>Order Confirmation</h2>
+            <>
+                <h2>Order Confirmation</h2>
+                {orderArr}
+            </>
         )
     }
 }
 
-const MDTP = x => {
+const MSTP = state => {
     return {
-
+        order: state.order
     }
 }
 
-export default connect(null,MDTP)(Confirmation)
+export default connect(MSTP)(Confirmation)

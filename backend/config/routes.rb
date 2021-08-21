@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         post '/users/cart/add_cup' => 'carts#add_product'
         post '/users/cart/remove_item' => 'carts#remove_item'
         post '/users/cart/clear' => 'carts#clear'
-        post 'users/cart/checkout' => 'carts#checkout'
+        post 'users/cart/checkout' => 'orders#checkout'
       end
     end  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

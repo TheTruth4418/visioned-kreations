@@ -5,17 +5,19 @@ const initialState = {
 const rootReducer = (state=initialState,action) => {
     switch(action.type){
       case 'LOGIN_USER':
-        return {...state, currentUser: action.payload, cart: undefined}
+        return {...state, currentUser: action.payload, cart: undefined, order:undefined}
       case 'LOGOUT_USER':
-        return { ...state, currentUser: undefined, cart:undefined }
+        return { ...state, currentUser: undefined, cart:undefined, order: undefined }
       case 'GET_ITEMS':
-        return { ...state, items: action.payload, viewing: undefined, cart: undefined}
+        return { ...state, items: action.payload, viewing: undefined, cart: undefined, order: undefined}
       case 'VIEW_ITEM':
-        return {...state, viewing: action.payload, cart: undefined }
+        return {...state, viewing: action.payload, cart: undefined, order: undefined }
       case 'VIEW_CART':
-        return {...state, cart: action.payload}
+        return {...state, cart: action.payload, order: undefined}
       case 'CLEAR_CART':
         return{...state, cart: {}}
+      case 'VIEW_ORDER':
+        return{...state, cart: undefined, order: action.payload}
       default:
         return state;
     }

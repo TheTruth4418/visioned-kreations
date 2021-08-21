@@ -252,7 +252,7 @@ export const clearCart = () => {
   }
 }
 
-export const checkoutCart = () => {
+export const checkoutCart = (props) => {
   const token = localStorage.token;
   return dispatch => {
     return fetch("http://localhost:3000/api/v1/users/cart/checkout", {
@@ -266,6 +266,11 @@ export const checkoutCart = () => {
       .then(resp => resp.json())
       .then(data => {
         console.log(data)
+        props.push(`/orders/confirmation/${data.id}`)
+        dispatch({
+          type: 'VIEW_ORDER',
+          payload: data
+        })
       })
   }
 }

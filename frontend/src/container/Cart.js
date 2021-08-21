@@ -22,7 +22,7 @@ class Cart extends Component{
     }
 
     checkOut = () => {
-        this.props.checkoutCart()
+        this.props.checkoutCart(this.props.history)
     }
 
 render(){
@@ -64,7 +64,7 @@ const MDTP = dispatch => {
         viewCart: obj => dispatch(viewCart(obj)),
         removeItem: id => dispatch(removeItem(id)),
         clearCart: () => dispatch(clearCart()),
-        checkoutCart: () => dispatch(checkoutCart())
+        checkoutCart: (props) => dispatch(checkoutCart(props))
     }
 }
 
