@@ -251,3 +251,21 @@ export const clearCart = () => {
       })
   }
 }
+
+export const checkoutCart = () => {
+  const token = localStorage.token;
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/users/cart/checkout", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(data)
+      })
+  }
+}

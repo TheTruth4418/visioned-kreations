@@ -27,7 +27,7 @@ class NavBar extends Component{
         return (
             <div className="nav">
                 <NavLink to="/">Home</NavLink>
-                {this.props.loggedIn ? this.loginActions() : <a href="/" onClick={this.logout} >Log Out</a>}
+                {this.props.loggedIn ? this.loginActions() : <><a href="/" onClick={this.logout} >Log Out</a><NavLink to="/orders">Order History</NavLink></>}
                 <NavLink to="/cart" className="cartDiv"><img src={cart} alt="" className="cartImg"/></NavLink>
             </div>
         )

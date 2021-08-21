@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(version: 2021_08_19_064721) do
   end
 
   create_table "order_products", force: :cascade do |t|
-    t.integer "cart_id"
+    t.integer "order_id"
     t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "cart_id"
+    t.string "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

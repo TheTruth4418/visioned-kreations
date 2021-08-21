@@ -5,10 +5,12 @@ import Home from './component/Home';
 import NavBar from './container/NavBar';
 import ItemPage from './container/ItemPage';
 import Cart from './container/Cart';
+import Orders from './container/Orders.js'
 import { Component } from 'react';
 import { fetchUser, getItems } from './actions';
 import { connect } from 'react-redux';
 import './styleSheets/index.css'
+import Confirmation from './container/Confirmation';
 
 class App extends Component{
 
@@ -27,6 +29,8 @@ class App extends Component{
         <Route exact path="/login" component={Login}/>
         <Route path="/items" component={ItemPage}/>
         <Route exact path="/cart" component={Cart}/>
+        <Route exact path="/orders" component={Orders}/>
+        <Route path="/orders/confirmation" component={Confirmation} />
       </Switch>
     </Router>
   );

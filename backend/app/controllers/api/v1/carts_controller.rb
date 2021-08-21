@@ -30,6 +30,24 @@ class Api::V1::CartsController < ApplicationController
         render json: {status: "Success"}
     end
 
+    def checkout 
+        cart = current_user.cart.cart_products
+        orderObj = {}
+        order = Order.create(user_id: current_user.id)
+        cart.each do |x|
+            product = OrderProduct.create(product_id: x.id , order_id: order.id)
+            item = item = Product.find_by_id(x.product_id)
+            orderObj[item.name] = {
+                    "quantity" => 1,
+                    "price" => item.price,
+                    "id" => item.id
+            }
+        end
+        cart.destroy_all
+        render json: orderObj
+
+    end
+
     def remove_item
         item = Product.find_by_id(params[:obj][:id])
         cart = current_user.cart

@@ -43,7 +43,7 @@ render(){
                 <button name="medium" value="M" onClick={this.onChange}>M</button>
                 <button name="large" value="L" onClick={this.onChange}>L</button>
             </div>
-            {this.state.size ? (this.inventoryReader(this.state.size).stock !== 0 ? <> <p>In Stock</p> <button onClick={this.submitCart}>Add to Cart</button> </> : <p>Out of Stock</p>) : <p>Select a size</p>}
+            {this.state.size ? (this.inventoryReader(this.state.size).stock !== 0 ? <> <p>In Stock</p> <p>Price ${this.inventoryReader(this.state.size).price}</p> <button onClick={this.submitCart}>Add to Cart</button> </> : <p>Out of Stock</p>) : <p>Select a size</p>}
             
         </div>
         )
