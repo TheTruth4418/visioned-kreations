@@ -274,3 +274,45 @@ export const checkoutCart = (props) => {
       })
   }
 }
+
+export const orderHistory = () => {
+  const token = localStorage.token;
+  return dispatch => {
+    return fetch("http://localhost:3000/api/v1/users/orders/history", {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        dispatch({
+          type: 'ORDER_HISTORY',
+          payload: data
+        })
+      })
+  }
+}
+
+export const displayOrder = (id) => {
+  const token = localStorage.token;
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/users/order/${id}`, {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        dispatch({
+          type: 'VIEW_ORDER',
+          payload: data
+        })
+      })
+  }
+}

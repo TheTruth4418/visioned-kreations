@@ -12,6 +12,8 @@ Rails.application.routes.draw do
         post '/users/cart/remove_item' => 'carts#remove_item'
         post '/users/cart/clear' => 'carts#clear'
         post 'users/cart/checkout' => 'orders#checkout'
+        get 'users/order/:id' => 'orders#show'
+        get 'users/orders/history' => 'orders#history'
       end
     end  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

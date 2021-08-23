@@ -31,7 +31,7 @@ class Api::V1::OrdersController < ApplicationController
         self.show(order.id)
     end
 
-    def index
-        
+    def history
+        render json: current_user.orders
     end
 end

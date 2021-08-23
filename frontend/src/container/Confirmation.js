@@ -1,8 +1,15 @@
 import React from "react";
 import {Component} from "react";
 import { connect } from "react-redux";
+import { displayOrder } from "../actions";
 
 class Confirmation extends Component{
+
+    componentDidMount(){
+        let id = this.props.history.location.pathname.split("/")[3]
+        this.props.displayOrder(id)
+    }
+
     render(){
         let orderArr = []
         if(this.props.order){
@@ -31,4 +38,10 @@ const MSTP = state => {
     }
 }
 
-export default connect(MSTP)(Confirmation)
+const MDTP = dispatch => {
+    return {
+        displayOrder: (id) => dispatch(displayOrder(id))
+    }
+}
+
+export default connect(MSTP, MDTP)(Confirmation)
