@@ -9,7 +9,7 @@ class Login extends Component {
   }
 
   componentDidMount(){
-    if(this.props.loggedIn){
+    if(localStorage.token){
       this.props.history.push('/')
       alert("You are already logged in")
     }

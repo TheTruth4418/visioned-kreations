@@ -6,6 +6,9 @@ class Cart extends Component{
 
     componentDidMount(){
         this.props.viewCart()
+        if(!localStorage.token){
+            this.props.history.goBack()
+        }
     }
 
     removeItem = e => {

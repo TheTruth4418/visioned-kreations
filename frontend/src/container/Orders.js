@@ -6,6 +6,9 @@ class OrderHistory extends Component {
 
     componentDidMount(){
         this.props.orderHistory()
+        if(!localStorage.token){
+            this.props.history.goBack()
+        }
     }
 
     render(){
@@ -13,7 +16,7 @@ class OrderHistory extends Component {
         if (this.props.orders){
             for(const [key,value] of Object.entries(this.props.orders).sort()){
                 ordersArr.push(
-                    <> <NavLink to={`/orders/confirmation/${value.id}`} key={value.id}>{`Order #${value.id}`}</NavLink> <br/> </>
+                    <> <NavLink to={`/orders/confirmation/${value.id}`} key={key}>{`Order #${value.id}`}</NavLink> <br/> </>
                 )
             }
         }

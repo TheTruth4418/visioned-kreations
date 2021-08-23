@@ -8,6 +8,9 @@ class Confirmation extends Component{
     componentDidMount(){
         let id = this.props.history.location.pathname.split("/")[3]
         this.props.displayOrder(id)
+        if(!localStorage.token){
+            this.props.history.goBack()
+        }
     }
 
     render(){

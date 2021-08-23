@@ -22,7 +22,7 @@ class App extends Component{
   render(){
   return (
     <Router>
-      {<NavBar/>}
+      <NavBar/>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/signup" component={Signup}/>
@@ -37,9 +37,15 @@ class App extends Component{
   }
 }
 
+const MSTP = state => {
+  return {
+    loggedIn: state.currentUser
+  }
+}
+
 const mapDispatchToProps = dispatch => ({
   fetchUser: () => dispatch(fetchUser()),
   getItems: () => dispatch(getItems())
 })
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(MSTP, mapDispatchToProps)(App);

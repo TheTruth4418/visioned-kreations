@@ -11,9 +11,9 @@ class Signup extends Component {
   }
 
   componentDidMount(){
-    if(this.props.loggedIn){
-    <Redirect to="/" />
-    alert("You are already logged in")
+    if(localStorage.token){
+      this.props.history.push('/')
+      alert("You are already logged in")
     }
   }
 
