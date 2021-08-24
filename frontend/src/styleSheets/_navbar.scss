@@ -1,8 +1,5 @@
-.cartImg {
-    width: 15px;
-}
-
 .nav{
+    display: flex;
     overflow: hidden;
     background-color: #333;
     a{
@@ -16,9 +13,6 @@
         &:hover{
             background-color: gold;
         }
-    }
-    .cartDiv{
-        width:48px;
     }
 }
 

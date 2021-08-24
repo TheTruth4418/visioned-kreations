@@ -8,13 +8,22 @@ import { logoutUser } from "../actions";
 
 class NavBar extends Component{
 
-    loginActions(){
-        return(
-            <>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/signup">Signup</NavLink>
-            </>
-        )
+    loginActions(arg = 0){
+        if (arg !== 0){
+            return(
+                <>
+                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/signup">Signup</NavLink>
+                </>
+            )
+        } else {
+            return(
+                <>
+                    <NavLink to="/orders">Order History</NavLink>
+                    <a href="/" onClick={this.logout} >Log Out</a>
+                </>
+            )
+        }
     }
 
     logout= e => {
@@ -27,8 +36,8 @@ class NavBar extends Component{
         return (
             <div className="nav">
                 <NavLink to="/">Home</NavLink>
-                {this.props.loggedIn ? this.loginActions() : <><a href="/" onClick={this.logout} >Log Out</a><NavLink to="/orders">Order History</NavLink></>}
-                <NavLink to="/cart" className="cartDiv"><img src={cart} alt="" className="cartImg"/></NavLink>
+                {localStorage.token ? this.loginActions() : this.loginActions(1) }
+                <NavLink to="/cart" className="cartDiv">Cart</NavLink>
             </div>
         )
     }

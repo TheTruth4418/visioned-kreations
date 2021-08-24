@@ -7,10 +7,10 @@ class Home extends Component{
     render(){
         let user = this.props.currentUser
         return (
-            <div>
+            <>
                 {user ? <p>{`Welcome ${user.name}`}</p> : <p>Welcome Guest!</p>}
                 <Catalog/>
-            </div>
+            </>
         )
     }
 

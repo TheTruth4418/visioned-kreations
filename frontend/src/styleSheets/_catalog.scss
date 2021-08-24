@@ -1,18 +1,48 @@
-.catalog{
-    float: left;
-    padding:25px;
-    text-align: center;
-    &:hover{
-        background-color: grey;
+/* .catalog-container {
+    overflow: hidden;
+    background-color: #D3D3D3;
+    margin-left: 10%;
+    margin-right: 10%;
+    .catalog-item{
+        float: left;
+        text-align: center;
+        &:hover{
+            background-color: grey;
+        }
+    }
+} */
+
+.catalog-container {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    margin-left: 5%;
+    margin-right: 5%;
+    .catalog-item{
+        text-align: center;
+        &:hover{
+            background-color: #D3D3D3;
+        }
+    }
+    .Cup{
+        width: 200px;
+        height: 150px;
+    }
+    .Shirt{
+        width: 200px;
+    }
+    .Shoes{
+        width: 200px;
+        height: 150px;
+    }
+    .Controller {
+        width: 200px;
+        height: 150px;
     }
 }
 
-.Shirt{
-    width: 200px;
-    
-}
-
-.Cup{
-    width: 200px;
-    height: 150px;
-}
+@media (max-width: 920px) {
+    .catalog-container {
+        grid-template-columns: auto auto;
+    }
+  }

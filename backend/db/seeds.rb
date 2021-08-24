@@ -7,6 +7,21 @@ Item.create(name:"Old School Hip Hop Tee 2", category: "Shirt", price: 20.00)
 Item.create(name:"Cotton Candy Tumbler", category: "Cup", price: 20.00)
 Item.create(name:"C Leopard Tumbler", category: "Cup", price: 20.00)
 Item.create(name:"Whale tail Mug", category: "Cup", price: 20.00)
+Item.create(name: "Bee PS4 Controller", category: "Controller", price: 30.00)
+Item.create(name: "MK PS4 Controller", category: "Controller", price: 30.00)
+Item.create(name: "Naruto PS4 Controller", category: "Controller", price: 30.00)
+Item.create(name: "Donut Painted Shoes", category: "Shoes", price: 50.00)
+Item.create(name: "Teen Titans Painted Shoes", category: "Shoes", price: 50.00)
+
+
+#Controllers
+Product.create(name:"Bee PS4 Controller", color:"Blue", stock: 3, price: 50.00, item_id: 10)
+Product.create(name:"MK PS4 Controller", color:"Grey", stock: 3, price: 50.00, item_id: 11)
+Product.create(name:"Naruto PS4 Controller", color:"Blue/Orange", stock: 3, price: 50.00, item_id: 12)
+
+#Shoes
+Product.create(name:"Teen Titans Painted Shoes", color: "White", stock: 5, price: 50.00, item_id: 13)
+Product.create(name:"Donut Painted Shoes", color: "White", stock: 5, price: 50.00,item_id:14)
 
 #Cups
 Product.create(name: "Cotton Candy Tumbler", color: "Pink", stock: 3, price: 35.00, item_id: 7)

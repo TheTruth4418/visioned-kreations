@@ -1,8 +1,7 @@
-.cartImg {
-  width: 15px;
-}
-
 .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   overflow: hidden;
   background-color: #333;
 }
@@ -21,26 +20,60 @@
   background-color: gold;
 }
 
-.nav .cartDiv {
-  width: 48px;
+/* .catalog-container {
+    overflow: hidden;
+    background-color: #D3D3D3;
+    margin-left: 10%;
+    margin-right: 10%;
+    .catalog-item{
+        float: left;
+        text-align: center;
+        &:hover{
+            background-color: grey;
+        }
+    }
+} */
+.catalog-container {
+  overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-.catalog {
-  float: left;
-  padding: 25px;
+.catalog-container .catalog-item {
   text-align: center;
 }
 
-.catalog:hover {
-  background-color: grey;
+.catalog-container .catalog-item:hover {
+  background-color: #D3D3D3;
 }
 
-.Shirt {
-  width: 200px;
-}
-
-.Cup {
+.catalog-container .Cup {
   width: 200px;
   height: 150px;
+}
+
+.catalog-container .Shirt {
+  width: 200px;
+}
+
+.catalog-container .Shoes {
+  width: 200px;
+  height: 150px;
+}
+
+.catalog-container .Controller {
+  width: 200px;
+  height: 150px;
+}
+
+@media (max-width: 920px) {
+  .catalog-container {
+    -ms-grid-columns: auto auto;
+        grid-template-columns: auto auto;
+  }
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { connect } from "react-redux"
 import { getItems } from "../actions"
+import CatalogItem from "./CatalogItem";
 import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 class Catalog extends Component{
 
@@ -9,20 +10,21 @@ class Catalog extends Component{
     }
 
 render(){
-    let notesArr = []
+    let notesArr;
     if(this.props.items){
-     for(const [key,value] of Object.entries(this.props.items).sort()){
-        notesArr.push(<NavLink to={`/items/${value.name}`} key={value.id} ><div className="catalog">
-                        <img src={require(`../images/${value.category}/${value.name}.png`).default} alt={key} className={value.category} /><br/>
-                        {value.name}<br/>{`Starting at $${value.price}`}
-                      </div></NavLink>)
-        } 
-    }
-    return (
-        <div className="catalog-container">
-            <p>Catalog</p>
-            {notesArr}
+        notesArr = this.props.items.map((item) => <>
+        <div className="catalog-item">
+            <CatalogItem item={item}/>
         </div>
+        </>)
+    }
+
+    return (
+        <>
+            <div className="catalog-container">
+                {notesArr}
+            </div>
+        </>
     )
     }
 }
