@@ -1,8 +1,10 @@
 class Api::V1::ItemsController < ApplicationController
     skip_before_action :authorized
     def index 
-        items = Item.all 
-        render json: items
+        cats = Category.all
+        render json: cats.to_json( :include => {
+            :items => {:except => [:created_at, :updated_at]}
+        },:only => [:name] )
     end
 
     def show

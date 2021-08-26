@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {postSignup} from '../actions';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class Signup extends Component {
   state = {

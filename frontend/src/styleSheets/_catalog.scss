@@ -1,43 +1,28 @@
-/* .catalog-container {
-    overflow: hidden;
-    background-color: #D3D3D3;
-    margin-left: 10%;
-    margin-right: 10%;
-    .catalog-item{
-        float: left;
-        text-align: center;
-        &:hover{
-            background-color: grey;
-        }
-    }
-} */
-
 .catalog-container {
     overflow: hidden;
     display: grid;
-    grid-template-columns: auto auto auto auto ;
-    margin-left: 5%;
-    margin-right: 5%;
-    .catalog-item{
+    grid-template-columns: auto auto;
+    .catalog-category {
         text-align: center;
-        &:hover{
-            background-color: #D3D3D3;
+        .catalog-item{
+            float: left;
+            margin-left: 20px;
         }
     }
-    .Cup{
+    .Cups{
         width: 200px;
-        height: 150px;
+        height: 175px;
     }
-    .Shirt{
+    .Shirts{
         width: 200px;
     }
     .Shoes{
         width: 200px;
-        height: 150px;
+        height: 175px;
     }
-    .Controller {
+    .Controllers{
         width: 200px;
-        height: 150px;
+        height: 175px;
     }
 }
 
@@ -45,4 +30,5 @@
     .catalog-container {
         grid-template-columns: auto auto;
     }
-  }
+  } 
+

@@ -20,54 +20,40 @@
   background-color: gold;
 }
 
-/* .catalog-container {
-    overflow: hidden;
-    background-color: #D3D3D3;
-    margin-left: 10%;
-    margin-right: 10%;
-    .catalog-item{
-        float: left;
-        text-align: center;
-        &:hover{
-            background-color: grey;
-        }
-    }
-} */
 .catalog-container {
   overflow: hidden;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto auto;
-      grid-template-columns: auto auto auto auto;
-  margin-left: 5%;
-  margin-right: 5%;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
 }
 
-.catalog-container .catalog-item {
+.catalog-container .catalog-category {
   text-align: center;
 }
 
-.catalog-container .catalog-item:hover {
-  background-color: #D3D3D3;
+.catalog-container .catalog-category .catalog-item {
+  float: left;
+  margin-left: 20px;
 }
 
-.catalog-container .Cup {
+.catalog-container .Cups {
   width: 200px;
-  height: 150px;
+  height: 175px;
 }
 
-.catalog-container .Shirt {
+.catalog-container .Shirts {
   width: 200px;
 }
 
 .catalog-container .Shoes {
   width: 200px;
-  height: 150px;
+  height: 175px;
 }
 
-.catalog-container .Controller {
+.catalog-container .Controllers {
   width: 200px;
-  height: 150px;
+  height: 175px;
 }
 
 @media (max-width: 920px) {

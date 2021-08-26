@@ -1,8 +1,7 @@
 import { Component } from "react"
 import { connect } from "react-redux"
 import { getItems } from "../actions"
-import CatalogItem from "./CatalogItem";
-import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import CatalogSection from "./CatalogSection";
 class Catalog extends Component{
 
     componentDidMount(){
@@ -10,19 +9,17 @@ class Catalog extends Component{
     }
 
 render(){
-    let notesArr;
+    let catalogArr = [];
     if(this.props.items){
-        notesArr = this.props.items.map((item) => <>
-        <div className="catalog-item">
-            <CatalogItem item={item}/>
-        </div>
+        catalogArr = Object.entries(this.props.items).map((index) => <>
+            <CatalogSection category={index[1]}/>
         </>)
     }
-
+ 
     return (
         <>
             <div className="catalog-container">
-                {notesArr}
+                {catalogArr}
             </div>
         </>
     )

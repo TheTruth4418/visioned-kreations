@@ -1,6 +1,5 @@
 import { Component } from "react";
 import React from "react";
-import cart from "../images/cart.png"
 import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import {connect} from 'react-redux'
 import { logoutUser } from "../actions";
