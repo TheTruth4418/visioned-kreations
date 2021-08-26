@@ -37,7 +37,7 @@ render(){
     return (
         <div className="item-container">
             <p>Shirt Information</p>
-            <img src={require(`../images/${item.category}/${item.name}.png`).default} alt="" className={item.category} />
+            <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category} />
             <div className="sizes">
                 <button name="small" value="S" onClick={this.onChange}>S</button>
                 <button name="medium" value="M" onClick={this.onChange}>M</button>

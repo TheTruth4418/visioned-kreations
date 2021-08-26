@@ -15,13 +15,14 @@ class ItemPage extends Component{
     }
 
     infoCard(){
-        switch(this.props.item.category){
-            case "Shirt":
+        console.log(this.props.item)
+        switch(this.props.item.category.name){
+            case "Shirts":
                 return <ShirtInfo />
-            case "Cup":
+            case "Cups":
                 return <CupInfo />
             default:
-                return null;
+                return <p>Hello</p>;
         }
     }
 

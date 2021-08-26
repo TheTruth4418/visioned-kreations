@@ -13,10 +13,11 @@ class ShirtInfo extends Component{
 
 render(){
     let item = this.props.item
+    console.log(item.category)
     return (
         <div className="item-container">
             <h2>{item.name}</h2>
-            <img src={require(`../images/${this.props.item.category}/${item.name}.png`).default} alt="" className={item.category} />
+            <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category.name} />
             <p>Price ${item.price}</p>
             {item.products[0].stock > 0 ? 
             <>
