@@ -12,7 +12,8 @@ class Api::V1::OrdersController < ApplicationController
                 orderObj[item.name] = {
                     "quantity" => 1,
                     "price" => item.price,
-                    "id" => item.id
+                    "id" => item.id,
+                    "category" => item.item.category.name
                 }
             end
             orderObj["id"]= order.id

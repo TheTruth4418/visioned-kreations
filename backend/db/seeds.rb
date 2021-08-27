@@ -25,8 +25,8 @@ Product.create(name:"MK PS4 Controller", color:"Grey", stock: 3, price: 50.00, i
 Product.create(name:"Naruto PS4 Controller", color:"Blue/Orange", stock: 3, price: 50.00, item_id: 12)
 
 #Shoes
-Product.create(name:"Teen Titans Painted Shoes", color: "White", stock: 5, price: 50.00, item_id: 13)
-Product.create(name:"Donut Painted Shoes", color: "White", stock: 5, price: 50.00,item_id:14)
+Product.create(name:"Teen Titans Painted Shoes", color: "White", stock: 5, price: 50.00, item_id: 14)
+Product.create(name:"Donut Painted Shoes", color: "White", stock: 5, price: 50.00,item_id:13)
 
 #Cups
 Product.create(name: "Cotton Candy Tumbler", color: "Pink", stock: 3, price: 35.00, item_id: 7)

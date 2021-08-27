@@ -28,23 +28,38 @@ class Cart extends Component{
         this.props.checkoutCart(this.props.history)
     }
 
+    shirtLink = (key, value) => {
+        if(value.category === "Shirts"){
+            let item = key.split(" ")
+            item = item.slice(0,item.length--)
+            return <img src={require(`../images/${value.category}/${item.join(" ")}.png`).default} alt="shirt img" className={value.category} />
+        } else {
+            <img src={require(`../images/${value.category}/${key}.png`).default} alt="shirt img" className={value.category} />
+        }
+    }
+
 render(){
     let cartArr = []
     let total = 0
     if(this.props.cart){
         for(const [key,value] of Object.entries(this.props.cart).sort()){
             cartArr.push(<div className="cart-item-container" key={value.id}>
-                <p>{key}</p>
-                <p>{`Quantity: ${value.quantity}`}</p>
-                <p>{`Price ${value.price*value.quantity}`}</p>
-                <button id={value.id} onClick={this.removeItem}>Remove</button>
+                <div className="cart-info">
+                    <p>{key}</p>
+                    <p>{`Quantity: ${value.quantity}`}</p>
+                    <p>{`Price ${value.price*value.quantity}`}</p>
+                    <button id={value.id} onClick={this.removeItem}>Remove</button>
+                </div>
+                <div className="cart-img">
+                    {this.shirtLink(key,value)}
+                </div>
             </div>
             )
         total += value.price*value.quantity
         }
     }
     return (
-        <div className="item-container">
+        <div className="cart-container">
             {cartArr.length === 0 ? <p>Your Cart is empty</p> :
             <>
                 {cartArr}

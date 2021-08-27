@@ -1,0 +1,15 @@
+.order-item-container{
+    display: inline-block;
+    width:100%;
+    padding-top: 15px;
+    .order-item-info{
+        float:left;
+    }
+    .order-item-img{
+        float:right;
+        img{
+            max-width: 150px;
+        }
+    }
+}
+

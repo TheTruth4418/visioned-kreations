@@ -17,7 +17,8 @@ class Api::V1::CartsController < ApplicationController
                 cartObj[item.name] = {
                     "quantity" => 1,
                     "price" => item.price,
-                    "id" => item.id
+                    "id" => item.id,
+                    "category" => item.item.category.name
                 }
             end
         end
