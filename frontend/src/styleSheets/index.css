@@ -67,7 +67,26 @@
         grid-template-columns: auto auto;
     }
   }  */
+.item-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+}
+
 .item-container img {
-  width: 500px;
+  max-width: 500px;
+}
+
+@media (max-width: 479px) {
+  .item-container {
+    display: inline;
+    background-color: red;
+  }
+  .item-container img {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 /*# sourceMappingURL=index.css.map */

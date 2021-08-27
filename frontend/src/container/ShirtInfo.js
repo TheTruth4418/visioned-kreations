@@ -37,7 +37,6 @@ render(){
     return (
         <div className="item-container">
             <div className="item-info">
-                <h2>{item.name}</h2>
                 <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category.name} />
             </div>
             <div className="item-options">

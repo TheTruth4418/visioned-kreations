@@ -35,7 +35,8 @@ class ItemPage extends Component{
     render(){
         return (
             <>
-                {this.props.item ? this.infoCard() : <h2>Loading</h2> }
+                
+                {this.props.item ? <> <h2>{this.props.item.name}</h2> {this.infoCard()}  </>: <h2>Loading</h2> }
             </>
         )
         }

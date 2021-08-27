@@ -1,5 +1,19 @@
 .item-container{
+    display: grid;
+    grid-template-columns: auto auto;
     img{
-        width:500px;
+        max-width:500px;
     }
 }
+
+ @media (max-width: 479px) {
+    .item-container {
+        display: inline;
+        background-color: red;
+        img{
+            max-width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+  } 
