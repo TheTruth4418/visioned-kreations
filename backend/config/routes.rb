@@ -8,8 +8,12 @@ Rails.application.routes.draw do
         get '/items' => 'items#index'
         get '/items/:item_name' => 'items#show'
         get '/users/cart' => 'carts#show'
+
         post '/users/cart/add_shirt' => 'carts#add_product'
         post '/users/cart/add_cup' => 'carts#add_product'
+        post '/users/cart/add_controller' => 'carts#add_product'
+        post '/users/cart/add_shoes' => 'carts#add_product'
+        
         post '/users/cart/remove_item' => 'carts#remove_item'
         post '/users/cart/clear' => 'carts#clear'
         post 'users/cart/checkout' => 'orders#checkout'

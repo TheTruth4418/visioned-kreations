@@ -9,8 +9,8 @@ function CatalogSection(props){
         </>)
     return (
         <>
-            <div className="catalog-category">
-                <h2>{category.name}</h2>
+            <h2>{category.name}</h2>
+            <div className="catalog-category" id={`${category.name}-div`}>
                 {itemsArr}
             </div>
         </>

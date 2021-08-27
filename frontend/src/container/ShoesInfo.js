@@ -1,11 +1,11 @@
 import { Component } from "react"
 import { connect } from "react-redux"
-import { addControllerToCart } from "../actions"
+import { addShoesToCart } from "../actions"
 //import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
 class ControllerInfo extends Component{
 
     addToCart = e => {
-        this.props.addControllerToCart(this.props.item.products[0])
+        this.props.addShoesToCart(this.props.item.products[0])
     }
 
     componentDidMount(){
@@ -38,7 +38,7 @@ const MSTP = state => {
 
 const MDTP = dispatch => {
     return {
-        addControllerToCart: obj => dispatch(addControllerToCart(obj))
+        addShoesToCart: obj => dispatch(addShoesToCart(obj))
     }
 }
 

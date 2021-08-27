@@ -1,9 +1,13 @@
 .catalog-container {
     overflow: hidden;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
+    text-align: center;
     .catalog-category {
-        text-align: center;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin-left: auto;
+        margin-right: auto;
         .catalog-item{
             float: left;
             margin-left: 20px;
@@ -14,7 +18,7 @@
         height: 175px;
     }
     .Shirts{
-        width: 200px;
+        width: 250px;
     }
     .Shoes{
         width: 200px;
@@ -26,9 +30,9 @@
     }
 }
 
-@media (max-width: 920px) {
+/* @media (max-width: 920px) {
     .catalog-container {
         grid-template-columns: auto auto;
     }
-  } 
+  }  */
 

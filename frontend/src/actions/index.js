@@ -126,6 +126,60 @@ export const fetchItem = obj => {
   }
 }
 
+export const addControllerToCart = obj => {
+  return dispatch => {
+    const token = localStorage.token;
+    if (token) {
+      return fetch("http://localhost:3000/api/v1/users/cart/add_cup", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({obj})
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          if (data.message) {
+            console.log(data.message)
+          } else {
+            console.log(data)
+          }
+        })
+    } else {
+      alert("You must make an account before using the cart!")
+    }
+  }
+}
+
+export const addShoesToCart = obj => {
+  return dispatch => {
+    const token = localStorage.token;
+    if (token) {
+      return fetch("http://localhost:3000/api/v1/users/cart/add_cup", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({obj})
+      })
+        .then(resp => resp.json())
+        .then(data => {
+          if (data.message) {
+            console.log(data.message)
+          } else {
+            console.log(data)
+          }
+        })
+    } else {
+      alert("You must make an account before using the cart!")
+    }
+  }
+}
+
 export const addCupToCart = obj => {
   return dispatch => {
     const token = localStorage.token;

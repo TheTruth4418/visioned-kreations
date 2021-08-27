@@ -24,12 +24,18 @@
   overflow: hidden;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto;
-      grid-template-columns: auto auto;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  text-align: center;
 }
 
 .catalog-container .catalog-category {
-  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .catalog-container .catalog-category .catalog-item {
@@ -43,7 +49,7 @@
 }
 
 .catalog-container .Shirts {
-  width: 200px;
+  width: 250px;
 }
 
 .catalog-container .Shoes {
@@ -56,10 +62,9 @@
   height: 175px;
 }
 
-@media (max-width: 920px) {
-  .catalog-container {
-    -ms-grid-columns: auto auto;
+/* @media (max-width: 920px) {
+    .catalog-container {
         grid-template-columns: auto auto;
-  }
-}
+    }
+  }  */
 /*# sourceMappingURL=index.css.map */
