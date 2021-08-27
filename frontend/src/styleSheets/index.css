@@ -67,4 +67,7 @@
         grid-template-columns: auto auto;
     }
   }  */
+.item-container img {
+  width: 500px;
+}
 /*# sourceMappingURL=index.css.map */

@@ -16,15 +16,19 @@ render(){
     console.log(item.category)
     return (
         <div className="item-container">
-            <h2>{item.name}</h2>
-            <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category.name} />
-            <p>Price ${item.price}</p>
-            {item.products[0].stock > 0 ? 
-            <>
-                <button onClick={this.addToCart}>Add to Cart</button>
-                <p>In Stock!</p>
-            </> : 
-            <p>Out of Stock</p>}
+            <div className="item-info">
+                <h2>{item.name}</h2>
+                <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category.name} />
+            </div>
+            <div className="item-options">
+                <p>Price ${item.price}</p>
+                {item.products[0].stock > 0 ? 
+                <>
+                    <button onClick={this.addToCart}>Add to Cart</button>
+                    <p>In Stock!</p>
+                </> : 
+                <p>Out of Stock</p>}
+            </div>
         </div>
     )
     }

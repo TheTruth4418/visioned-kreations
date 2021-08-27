@@ -1,32 +1,56 @@
 import { Component } from "react"
 import { connect } from "react-redux"
-import { addControllerToCart } from "../actions"
+import { addShirtToCart } from "../actions"
 //import {NavLink } from "react-router-dom/cjs/react-router-dom.min";
-class ControllerInfo extends Component{
+class ShirtInfo extends Component{
 
-    addToCart = e => {
-        this.props.addControllerToCart(this.props.item.products[0])
+    state = {
+        size: undefined
     }
 
-    componentDidMount(){
+    onChange = (e) => {
+        this.setState({
+            size: e.target.value
+        })
+    }
+
+    submitCart = (e) => {
+        this.props.addShirtToCart(this.inventoryReader(this.state.size))
+    }
+    
+    inventoryReader(arg){
+        switch(arg){
+            case "S":
+                return this.props.item.products[0]
+            case "M":
+                return this.props.item.products[1]
+            case "L":
+                return this.props.item.products[2]
+            default:
+                return <p>Select a size</p>
+
+        }
     }
 
 render(){
     let item = this.props.item
-    console.log(item.category)
     return (
         <div className="item-container">
-            <h2>{item.name}</h2>
-            <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category.name} />
-            <p>Price ${item.price}</p>
-            {item.products[0].stock > 0 ? 
-            <>
-                <button onClick={this.addToCart}>Add to Cart</button>
-                <p>In Stock!</p>
-            </> : 
-            <p>Out of Stock</p>}
+            <div className="item-info">
+                <h2>{item.name}</h2>
+                <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category.name} />
+            </div>
+            <div className="item-options">
+                <div className="sizes">
+                    <button name="small" value="S" onClick={this.onChange}>S</button>
+                    <button name="medium" value="M" onClick={this.onChange}>M</button>
+                    <button name="large" value="L" onClick={this.onChange}>L</button>
+                </div>
+                {this.state.size ? (this.inventoryReader(this.state.size).stock !== 0 ? <> <p>In Stock</p> <p>Price ${this.inventoryReader(this.state.size).price}</p> <button onClick={this.submitCart}>Add to Cart</button> </> : <p>Out of Stock</p>) : <p>Select a size</p>}
+            </div>
+            
         </div>
-    )
+        )
     }
 }
 
@@ -38,8 +62,8 @@ const MSTP = state => {
 
 const MDTP = dispatch => {
     return {
-        addControllerToCart: obj => dispatch(addControllerToCart(obj))
+        addShirtToCart: obj => dispatch(addShirtToCart(obj))
     }
 }
 
-export default connect(MSTP,MDTP)(ControllerInfo)
+export default connect(MSTP,MDTP)(ShirtInfo)

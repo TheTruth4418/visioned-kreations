@@ -34,9 +34,9 @@ class ItemPage extends Component{
 
     render(){
         return (
-            <div className="item-container">
+            <>
                 {this.props.item ? this.infoCard() : <h2>Loading</h2> }
-            </div>
+            </>
         )
         }
     }
