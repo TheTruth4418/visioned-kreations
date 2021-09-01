@@ -13,7 +13,6 @@ export const postSignup = userObj => {
           if (data.message) {
             alert(data.message)
           } else {
-            console.log(data)
             localStorage.setItem("token", data.jwt)
             dispatch(loginUser(data.user))
           }
@@ -23,7 +22,6 @@ export const postSignup = userObj => {
   
   export const fetchLogin = (userObj) => {
     let state = userObj.state
-    console.log(state)
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
@@ -38,7 +36,6 @@ export const postSignup = userObj => {
           if (data.message) {
             alert(data.message)
           } else {
-            console.log(data)
             localStorage.setItem("token", data.jwt)
             dispatch(loginUser(data.user))
             userObj.history.push('/')
@@ -141,11 +138,7 @@ export const addControllerToCart = obj => {
       })
         .then(resp => resp.json())
         .then(data => {
-          if (data.message) {
-            console.log(data.message)
-          } else {
-            console.log(data)
-          }
+            alert("Added to cart!")
         })
     } else {
       alert("You must make an account before using the cart!")
@@ -168,11 +161,7 @@ export const addShoesToCart = obj => {
       })
         .then(resp => resp.json())
         .then(data => {
-          if (data.message) {
-            console.log(data.message)
-          } else {
-            console.log(data)
-          }
+          alert("Added To cart!")
         })
     } else {
       alert("You must make an account before using the cart!")
@@ -195,11 +184,7 @@ export const addCupToCart = obj => {
       })
         .then(resp => resp.json())
         .then(data => {
-          if (data.message) {
-            console.log(data.message)
-          } else {
-            console.log(data)
-          }
+          alert("Added to cart!")
         })
     } else {
       alert("You must make an account before using the cart!")
@@ -222,11 +207,7 @@ export const addShirtToCart = obj => {
       })
         .then(resp => resp.json())
         .then(data => {
-          if (data.message) {
-            console.log(data.message)
-          } else {
-            console.log(data)
-          }
+          alert("Added To Cart!")
         })
     } else {
       alert("You must sign in before using the cart!")
@@ -249,7 +230,7 @@ export const viewCart = obj => {
         .then(resp => resp.json())
         .then(data => {
           if (data.message) {
-            console.log(data.message)
+            alert(data.message)
           } else {
             dispatch({
               type: "VIEW_CART",
@@ -319,7 +300,6 @@ export const checkoutCart = (props) => {
       })
       .then(resp => resp.json())
       .then(data => {
-        console.log(data)
         props.push(`/orders/confirmation/${data.id}`)
         dispatch({
           type: 'VIEW_ORDER',

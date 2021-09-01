@@ -11,8 +11,9 @@ class Catalog extends Component{
 render(){
     let catalogArr = [];
     if(this.props.items){
-        catalogArr = Object.entries(this.props.items).map((index) => <>
-            <CatalogSection category={index[1]}/>
+        let count = 1
+        catalogArr = Object.entries(this.props.items).map((ele,index) => <>
+            <CatalogSection category={ele[1]} key={count+=1}/>
         </>)
     }
  

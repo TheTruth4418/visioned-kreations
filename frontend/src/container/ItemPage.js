@@ -17,7 +17,6 @@ class ItemPage extends Component{
     }
 
     infoCard(){
-        console.log(this.props.item)
         switch(this.props.item.category.name){
             case "Shoes":
                 return <ShoesInfo />

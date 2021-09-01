@@ -1,5 +1,4 @@
 .catalog-container {
-    overflow: hidden;
     display: grid;
     grid-template-columns: auto;
     text-align: center;
@@ -14,25 +13,38 @@
         }
     }
     .Cups{
-        width: 200px;
-        height: 175px;
+        width:100%;
+        max-width: 200px;
+        height: auto;
     }
     .Shirts{
-        width: 250px;
+        width:100%;
+        max-width: 250px;
+        height:auto;
     }
     .Shoes{
-        width: 200px;
-        height: 175px;
+        width: 100%;
+        max-width: 200px;
+        max-height: 175px;
+        height: auto;
     }
     .Controllers{
-        width: 200px;
+        width:100%;
+        max-width: 200px;
         height: 175px;
     }
 }
 
-/* @media (max-width: 920px) {
-    .catalog-container {
-        grid-template-columns: auto auto;
+@media (max-width: 479px) {
+    .catalog-container{
+        .catalog-category{
+            display: grid;
+            grid-template-columns: auto auto;
+            width: 100%;
+            .catalog-item{
+                
+            }
+        }
     }
-  }  */
+  } 
 

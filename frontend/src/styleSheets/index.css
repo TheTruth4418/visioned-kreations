@@ -17,11 +17,10 @@
 }
 
 .nav a:hover {
-  background-color: gold;
+  background-color: purple;
 }
 
 .catalog-container {
-  overflow: hidden;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto;
@@ -44,29 +43,40 @@
 }
 
 .catalog-container .Cups {
-  width: 200px;
-  height: 175px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
 }
 
 .catalog-container .Shirts {
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
 }
 
 .catalog-container .Shoes {
-  width: 200px;
-  height: 175px;
+  width: 100%;
+  max-width: 200px;
+  max-height: 175px;
+  height: auto;
 }
 
 .catalog-container .Controllers {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   height: 175px;
 }
 
-/* @media (max-width: 920px) {
-    .catalog-container {
+@media (max-width: 479px) {
+  .catalog-container .catalog-category {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto;
         grid-template-columns: auto auto;
-    }
-  }  */
+    width: 100%;
+  }
+}
+
 .item-container {
   display: -ms-grid;
   display: grid;

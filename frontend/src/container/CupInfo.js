@@ -13,7 +13,6 @@ class ShirtInfo extends Component{
 
 render(){
     let item = this.props.item
-    console.log(item.category)
     return (
         <div className="item-container">
             <div className="item-info">
