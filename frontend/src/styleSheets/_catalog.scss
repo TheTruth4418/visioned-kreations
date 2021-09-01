@@ -1,8 +1,13 @@
 .catalog-container {
+    h2{
+        font-family: "Lato";
+        text-transform: uppercase;
+    }
     display: grid;
     grid-template-columns: auto;
     text-align: center;
     .catalog-category {
+        font-family: 'Raleway';
         display: grid;
         grid-template-columns: auto auto auto;
         margin-left: auto;
@@ -10,10 +15,20 @@
         .catalog-item{
             float: left;
             margin-left: 20px;
+            a{
+                text-decoration: none;
+                color :inherit;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            &:hover{
+                background-color: #d3d3d3;
+            }
         }
     }
     .Cups{
-        width:100%;
+        width:80%;
         max-width: 200px;
         height: auto;
     }

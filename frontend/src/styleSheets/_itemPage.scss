@@ -1,19 +1,32 @@
 .item-container{
     display: grid;
     grid-template-columns: auto auto;
+    font-family: "Lato";
+    .stock{
+        font-family: "Lato-bold";
+        color:green;
+    }
     img{
         max-width:500px;
     }
 }
 
- @media (max-width: 479px) {
+// For some touchscreens
+ @media (max-width: 690px) {
     .item-container {
         display: inline;
         background-color: red;
         img{
-            max-width: 75%;
+            max-width: 100%;
             margin-left: auto;
             margin-right: auto;
+        }
+        .item-options{
+            font-size: x-large;
+            button{
+                height: auto;
+                width: 100px;
+            }
         }
     }
   } 

@@ -31,7 +31,7 @@ Product.create(name:"Donut Painted Shoes", color: "White", stock: 5, price: 50.0
 #Cups
 Product.create(name: "Cotton Candy Tumbler", color: "Pink", stock: 3, price: 35.00, item_id: 7)
 Product.create(name: "C Leopard Tumbler", color: "Leopard", stock: 3, price: 20.00, item_id:8)
-Product.create(name: "White tail Mug", color:"Red", stock: 3, price: 20.00, item_id:9)
+Product.create(name: "Whale tail Mug", color:"Red", stock: 3, price: 20.00, item_id:9)
 
 #Shirts
 Product.create(name: "Strong Black Queen Tee S", color: "White", stock: 5, price: 20.00, item_id: 1)

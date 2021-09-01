@@ -22,8 +22,8 @@ render(){
                 <p>Price ${item.price}</p>
                     {item.products[0].stock > 0 ? 
                     <>
+                        <p className="stock">In Stock!</p>
                         <button onClick={this.addToCart}>Add to Cart</button>
-                        <p>In Stock!</p>
                     </> : 
                     <p>Out of Stock</p>}
             </div>

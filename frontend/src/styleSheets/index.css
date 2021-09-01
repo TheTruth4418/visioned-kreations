@@ -1,4 +1,5 @@
 .nav {
+  font-family: "Raleway";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,7 +29,13 @@
   text-align: center;
 }
 
+.catalog-container h2 {
+  font-family: "Lato";
+  text-transform: uppercase;
+}
+
 .catalog-container .catalog-category {
+  font-family: 'Raleway';
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto auto;
@@ -42,8 +49,21 @@
   margin-left: 20px;
 }
 
+.catalog-container .catalog-category .catalog-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.catalog-container .catalog-category .catalog-item a:hover {
+  text-decoration: underline;
+}
+
+.catalog-container .catalog-category .catalog-item:hover {
+  background-color: #d3d3d3;
+}
+
 .catalog-container .Cups {
-  width: 100%;
+  width: 80%;
   max-width: 200px;
   height: auto;
 }
@@ -82,21 +102,34 @@
   display: grid;
   -ms-grid-columns: auto auto;
       grid-template-columns: auto auto;
+  font-family: "Lato";
+}
+
+.item-container .stock {
+  font-family: "Lato-bold";
+  color: green;
 }
 
 .item-container img {
   max-width: 500px;
 }
 
-@media (max-width: 479px) {
+@media (max-width: 690px) {
   .item-container {
     display: inline;
     background-color: red;
   }
   .item-container img {
-    max-width: 75%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+  }
+  .item-container .item-options {
+    font-size: x-large;
+  }
+  .item-container .item-options button {
+    height: auto;
+    width: 100px;
   }
 }
 
@@ -134,5 +167,20 @@
 
 .order-item-container .order-item-img img {
   max-width: 150px;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url("./fonts/Raleway2.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("./fonts/Lato-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url("./fonts/Lato-Bold.ttf") format("truetype");
 }
 /*# sourceMappingURL=index.css.map */

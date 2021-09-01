@@ -34,7 +34,7 @@ class Cart extends Component{
             item = item.slice(0,item.length--)
             return <img src={require(`../images/${value.category}/${item.join(" ")}.png`).default} alt="shirt img" className={value.category} />
         } else {
-            <img src={require(`../images/${value.category}/${key}.png`).default} alt="shirt img" className={value.category} />
+            return <img src={require(`../images/${value.category}/${key}.png`).default} alt="shirt img" className={value.category} />
         }
     }
 
