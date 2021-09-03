@@ -19,7 +19,7 @@ class Confirmation extends Component{
             item = item.slice(0,item.length--)
             return <img src={require(`../images/${value.category}/${item.join(" ")}.png`).default} alt="shirt img" className={value.category} />
         } else {
-            <img src={require(`../images/${value.category}/${key}.png`).default} alt="shirt img" className={value.category} />
+            return <img src={require(`../images/${value.category}/${key}.png`).default} alt="shirt img" className={value.category} />
         }
     }
 
@@ -32,7 +32,7 @@ class Confirmation extends Component{
                     <div className="order-item-info">
                         <p>{key}</p>
                         <p>{`Quantity: ${value.quantity}`}</p>
-                        <p>{`Price ${value.price*value.quantity}`}</p>
+                        <p>{`Price $${(value.price*value.quantity).toFixed(2)}`}</p>
                     </div>
                     <div className="order-item-img">
                         {this.shirtLink(key,value)}

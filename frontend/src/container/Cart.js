@@ -47,7 +47,7 @@ render(){
                 <div className="cart-info">
                     <p>{key}</p>
                     <p>{`Quantity: ${value.quantity}`}</p>
-                    <p>{`Price ${value.price*value.quantity}`}</p>
+                    <p>{`Price $${(value.price*value.quantity).toFixed(2)}`}</p>
                     <button id={value.id} onClick={this.removeItem}>Remove</button>
                 </div>
                 <div className="cart-img">
