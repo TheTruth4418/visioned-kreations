@@ -1,11 +1,11 @@
-import { Component } from "react";
-import Catalog from "../container/Catalog";
+import { NavLink } from "react-router-dom";
 
 function Home(){
     return (
         <>
             <h2 className="title">Visioned Kreations</h2>
-            <Catalog/>
+            <h3>Custom Cups, Shoes, Shirts, and Controllers!</h3>
+            <NavLink to="/catalog">Come Shop!</NavLink>
         </>
     )
 }

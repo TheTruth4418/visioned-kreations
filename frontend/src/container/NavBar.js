@@ -36,6 +36,7 @@ class NavBar extends Component{
         return (
             <div className="nav">
                 <NavLink to="/">Home</NavLink>
+                <NavLink to="/catalog">Catalog</NavLink>
                 {localStorage.token ? this.loginActions() : this.loginActions(1) }
                 <NavLink to="/cart" className="cartDiv">Cart</NavLink>
             </div>
