@@ -21,7 +21,31 @@
   background-color: purple;
 }
 
+@-webkit-keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .catalog-container {
+  -webkit-animation: fadeInAnimation ease 3s;
+          animation: fadeInAnimation ease 3s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto;
@@ -167,6 +191,11 @@
 
 .order-item-container .order-item-img img {
   max-width: 150px;
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: 'Raleway';
 }
 
 @font-face {

@@ -4,6 +4,11 @@
 @import './cart';
 @import './confirmation';
 
+.title{
+    text-transform: uppercase;
+    font-family: 'Raleway';
+}
+
 @font-face {
     font-family: 'Raleway';
     src:  url('./fonts/Raleway2.ttf')format("truetype");
@@ -16,3 +21,4 @@
     font-family: 'Lato-Bold';
     src: url('./fonts/Lato-Bold.ttf')format("truetype");
 }
+

@@ -20,6 +20,7 @@ class NavBar extends Component{
                 <>
                     <NavLink to="/orders">Order History</NavLink>
                     <a href="/" onClick={this.logout} >Log Out</a>
+                    {this.props.user ? <a>Logged In as:{this.props.user.name}</a> : null}
                 </>
             )
         }
@@ -44,7 +45,8 @@ class NavBar extends Component{
 
 const MSTP = state => {
     return {
-        loggedIn: state.currentUser === undefined
+        loggedIn: state.currentUser === undefined,
+        user: state.currentUser
     }
 }
 
