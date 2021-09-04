@@ -1,22 +1,15 @@
-import { Component } from "react"
 import { connect } from "react-redux"
 import { getItems } from "../actions"
 import CatalogSection from "./CatalogSection";
-class Catalog extends Component{
-
-    componentDidMount(){
-        this.props.getItems()
-    }
-
-render(){
+function Catalog(props){
     let catalogArr = [];
-    if(this.props.items){
+    if(props.items){
         let count = 1
-        catalogArr = Object.entries(this.props.items).map((ele,index) => <>
+        catalogArr = Object.entries(props.items).map((ele,index) => <>
             <CatalogSection category={ele[1]} key={count+=1}/>
         </>)
     }
- 
+    console.log(props.items)
     return (
         <>
             <div className="catalog-container">
@@ -24,7 +17,6 @@ render(){
             </div>
         </>
     )
-    }
 }
 
 const MSTP = state => {

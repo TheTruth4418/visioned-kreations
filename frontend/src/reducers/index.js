@@ -19,7 +19,7 @@ const rootReducer = (state=initialState,action) => {
       case 'VIEW_ORDER':
         return{...state, cart: undefined, order: action.payload}
       case 'ORDER_HISTORY':
-        return{currentUser: {...state.currentUser}, orders: action.payload}
+        return{currentUser: {...state.currentUser}, items: {...state.items}, orders: action.payload}
       default:
         return state;
     }
