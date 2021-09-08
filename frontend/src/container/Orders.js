@@ -16,15 +16,15 @@ class OrderHistory extends Component {
         if (this.props.orders){
             for(const [key,value] of Object.entries(this.props.orders).sort()){
                 ordersArr.push(
-                    <> <NavLink to={`/orders/confirmation/${value.id}`} key={key}>{`Order #${value.id}`}</NavLink> <br/> </>
+                    <li key={`Order #${value.id}`}> <NavLink to={`/orders/confirmation/${value.id}`}>{`Order #${value.id}`}</NavLink> <br/> </li>
                 )
             }
         }
         return(
-            <>
+            <div className="order-history-container">
                 <h1>Order History</h1>
                 {ordersArr}
-            </>
+            </div>
         )
     }
 } 

@@ -15,9 +15,14 @@
         font-family: "Lato";
         text-transform: uppercase;
     }
-    display: grid;
-    grid-template-columns: auto;
-    text-align: center;
+    ul{
+        display: grid;
+        grid-template-columns: auto;
+        text-align: center;
+        li{
+            list-style: none;
+        }
+    }
     .catalog-category {
         font-family: 'Raleway';
         display: grid;
