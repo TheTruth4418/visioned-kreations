@@ -8,29 +8,26 @@ class ControllerInfo extends Component{
         this.props.addControllerToCart(this.props.item.products[0])
     }
 
-    componentDidMount(){
-    }
-
-render(){
-    let item = this.props.item
-    return (
-        <div className="item-container">
-            <div className="item-img">
-                <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category.name} />
+    render(){
+        let item = this.props.item
+        return (
+            <div className="item-container">
+                <div className="item-img">
+                    <img src={require(`../images/${item.category.name}/${item.name}.png`).default} alt="" className={item.category.name} />
+                </div>
+                <div className="item-options">
+                    <p>Price ${item.price}</p>
+                        {item.products[0].stock > 0 ? 
+                        <>
+                            <p className="stock">In Stock!</p>
+                            <button onClick={this.addToCart}>Add to Cart</button>
+                        </> : 
+                        <p>Out of Stock</p>}
+                </div>
             </div>
-            <div className="item-options">
-                <p>Price ${item.price}</p>
-                    {item.products[0].stock > 0 ? 
-                    <>
-                        <p className="stock">In Stock!</p>
-                        <button onClick={this.addToCart}>Add to Cart</button>
-                    </> : 
-                    <p>Out of Stock</p>}
-            </div>
-        </div>
-    )
+        )
+        }
     }
-}
 
 const MSTP = state => {
     return {
