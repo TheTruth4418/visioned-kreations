@@ -9,7 +9,6 @@ function Catalog(props){
             <CatalogSection category={ele[1]} key={count+=1}/>
         </ul>)
     }
-    console.log(props.items)
     return (
         <>
             <div className="catalog-container">

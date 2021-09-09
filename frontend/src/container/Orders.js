@@ -16,7 +16,7 @@ class OrderHistory extends Component {
         if (this.props.orders){
             for(const [key,value] of Object.entries(this.props.orders).sort()){
                 ordersArr.push(
-                    <li key={`Order #${value.id}`}> <NavLink to={`/orders/confirmation/${value.id}`}>{`Order #${value.id}`}</NavLink> <br/> </li>
+                    <li key={`Order #${value.id}`} index={key}> <NavLink to={`/orders/confirmation/${value.id}`}>{`Order #${value.id}`}</NavLink> <br/> </li>
                 )
             }
         }

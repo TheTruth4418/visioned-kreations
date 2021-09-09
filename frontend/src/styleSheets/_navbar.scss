@@ -3,6 +3,10 @@
     display: flex;
     overflow: hidden;
     background-color: #333;
+    p{
+        color:white;
+        float: right;
+    }
     a{
         color: white;
         float:left;
@@ -15,5 +19,35 @@
             background-color: purple;
         }
     }
+    .resp{
+        display: none;
+    }
 }
 
+@media (max-width: 800px) {
+    .nav{
+        a:not(:last-child) {display: none;}
+        .resp{
+            display: block;
+        }
+    }
+
+    .nav-responsive{
+        position: relative;
+        background-color: #333;
+        .resp{
+            position: absolute;
+            right: 0;
+            top:0;
+        }
+        a{
+            float: none;
+            display: block;
+            text-align: left;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+    }
+  } 

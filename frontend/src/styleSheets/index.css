@@ -7,6 +7,11 @@
   background-color: #333;
 }
 
+.nav p {
+  color: white;
+  float: right;
+}
+
 .nav a {
   color: white;
   float: left;
@@ -19,6 +24,37 @@
 
 .nav a:hover {
   background-color: purple;
+}
+
+.nav .resp {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nav a:not(:last-child) {
+    display: none;
+  }
+  .nav .resp {
+    display: block;
+  }
+  .nav-responsive {
+    position: relative;
+    background-color: #333;
+  }
+  .nav-responsive .resp {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav-responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
 }
 
 @-webkit-keyframes fadeInAnimation {
