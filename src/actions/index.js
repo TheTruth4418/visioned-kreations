@@ -1,6 +1,6 @@
 export const postSignup = userObj => {
     return dispatch => {
-      return fetch("http://localhost:3000/api/v1/signup", {
+      return fetch("https://protected-wave-44624.herokuapp.com/api/v1/signup", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ export const postSignup = userObj => {
   export const fetchLogin = (userObj) => {
     let state = userObj.state
     return dispatch => {
-      return fetch("http://localhost:3000/api/v1/login", {
+      return fetch("https://protected-wave-44624.herokuapp.com/api/v1/login", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export const fetchUser = () => {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch("http://localhost:3000/api/v1/user", {
+      return fetch("https://protected-wave-44624.herokuapp.com/api/v1/user", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ export const logoutUser = () => ({
 
 export const getItems = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/items", {
+    return fetch("https://protected-wave-44624.herokuapp.com/api/v1/items", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ export const getItems = () => {
 
 export const fetchItem = obj => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/items/${obj.item}`, {
+    return fetch(`https://protected-wave-44624.herokuapp.com/api/v1/items/${obj.item}`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ export const addControllerToCart = obj => {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch("http://localhost:3000/api/v1/users/cart/add_cup", {
+      return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/cart/add_cup", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ export const addShoesToCart = obj => {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch("http://localhost:3000/api/v1/users/cart/add_cup", {
+      return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/cart/add_cup", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -173,7 +173,7 @@ export const addCupToCart = obj => {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch("http://localhost:3000/api/v1/users/cart/add_cup", {
+      return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/cart/add_cup", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -196,7 +196,7 @@ export const addShirtToCart = obj => {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch("http://localhost:3000/api/v1/users/cart/add_shirt", {
+      return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/cart/add_shirt", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -219,7 +219,7 @@ export const viewCart = obj => {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch("http://localhost:3000/api/v1/users/cart", {
+      return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/cart", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ export const viewCart = obj => {
 export const removeItem = obj => {
   const token = localStorage.token;
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/users/cart/remove_item", {
+    return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/cart/remove_item", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -269,7 +269,7 @@ export const removeItem = obj => {
 export const clearCart = () => {
   const token = localStorage.token;
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/users/cart/clear", {
+    return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/cart/clear", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -290,7 +290,7 @@ export const clearCart = () => {
 export const checkoutCart = (props) => {
   const token = localStorage.token;
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/users/cart/checkout", {
+    return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/cart/checkout", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -312,7 +312,7 @@ export const checkoutCart = (props) => {
 export const orderHistory = () => {
   const token = localStorage.token;
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/users/orders/history", {
+    return fetch("https://protected-wave-44624.herokuapp.com/v1/users/orders/history", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -333,7 +333,7 @@ export const orderHistory = () => {
 export const displayOrder = (id) => {
   const token = localStorage.token;
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/users/order/${id}`, {
+    return fetch(`https://protected-wave-44624.herokuapp.com/api/v1/users/order/${id}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
