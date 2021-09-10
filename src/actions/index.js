@@ -312,7 +312,7 @@ export const checkoutCart = (props) => {
 export const orderHistory = () => {
   const token = localStorage.token;
   return dispatch => {
-    return fetch("https://protected-wave-44624.herokuapp.com/v1/users/orders/history", {
+    return fetch("https://protected-wave-44624.herokuapp.com/api/v1/users/orders/history", {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
